@@ -1,0 +1,40 @@
+.auth-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 16px;
+}
+.container {
+    max-width: 600px;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.image-container img {
+    max-width: 100%; /* Ensure the image doesn't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.get-app {
+    text-align: center;
+}
+
+.store-logos {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+.store-logos img{
+    height: 30px;
+}
