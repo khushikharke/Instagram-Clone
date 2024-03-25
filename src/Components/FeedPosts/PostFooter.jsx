@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CommentLogo, NotificationsLogo, UnlikeLogo } from '../../../assets/Constants';
+import { CommentLogo, NotificationsLogo, UnlikeLogo } from '/Users/roshanop/Documents/YT_TUT_REACT/instagram clone/src/assets/Constants';
 import {Flex,Box,Text, InputGroup, InputRightElement,Input,Button} from '@chakra-ui/react';
 
 function PostFooter({username}){

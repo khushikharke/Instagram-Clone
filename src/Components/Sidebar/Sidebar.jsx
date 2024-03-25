@@ -1,7 +1,9 @@
-import {Avatar, Box,Flex,Link, Tooltip} from '@chakra-ui/react';
+import {Avatar, Box,Flex,Link, Tooltip,Button} from '@chakra-ui/react';
 import {Link as RouterLink} from 'react-router-dom';
-import {InstagramLogo,SearchLogo,NotificationsLogo, CreatePostLogo, InstagramMobileLogo } from '../../../assets/Constants';
+import {InstagramLogo,SearchLogo,NotificationsLogo, CreatePostLogo, InstagramMobileLogo } from '/Users/roshanop/Documents/YT_TUT_REACT/instagram clone/src/assets/Constants'
 import {AiFillHome} from 'react-icons/ai';
+import {BiLogOut} from'react-icons/bi';
+import useLogout from '../../Hooks/useLogout';
 function Sidebar(){
     const SidebarItems =[
             {
@@ -12,11 +14,13 @@ function Sidebar(){
             {
                 icon :<SearchLogo/>,
                 text:"Search",
+                
 
             },
             {
                 icon:<NotificationsLogo/>,
                 text:"Notification",
+
             },
             {
                 icon:<CreatePostLogo/>,
@@ -25,9 +29,12 @@ function Sidebar(){
             {
                 icon:<Avatar size={"sm"} name="Burak Orkmez" src="/profilepic.png"/>,
                 text:"Profile",
-                link:"/asaprogrammer",
+                link:"/as a programmer",
+                
+
             },
     ];
+    const {handleLogout, isLoggingOut,}= useLogout();
     return(
         
         <Box height = {"100vh"}
@@ -101,6 +108,37 @@ function Sidebar(){
                     </Tooltip>
                 ))}
 		</Flex>
+                    {/* LOGOUT */}
+        <Tooltip
+                    hasArrow
+                    label={"Logout"}
+                    placement='right'
+                    ml={1}
+                    // mb={8}
+                    openDelay={500}
+                    display={{base:"block", md:"none"}}
+                    >
+                        <Flex
+                        onClick={handleLogout}
+                        alignItems={"center"}
+                        gap={1}
+                        // mb={2}
+                        _hover={{bg:"whiteAlpha.400"}}
+                        borderRadius={6}
+                        p={2}
+                        w={{base:10, md:"full"}}
+                        justifyContent={{base:"center", md:"flex-start"}}
+                        pt={"500px"}
+                        >
+                            <BiLogOut size={25}/>
+                            <Button display={{base:"none",md:"block"}} 
+                            variant={"ghost"} _hover={{bg:"transparent"}}
+                            isLoading ={isLoggingOut}
+                            >
+                              Logout
+                            </Button>
+                        </Flex>
+                    </Tooltip>
 
         </Box>
     );

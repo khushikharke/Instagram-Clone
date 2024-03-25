@@ -1,8 +1,8 @@
 import { Container, Flex } from "@chakra-ui/react";
 import React  from "react";
-import ProfileTabs from "../../../Components/AuthForm/ProfilePage/ProfileTabs";
-import ProfilePosts from "../../../Components/AuthForm/ProfilePage/ProfilePosts";
-import ProfileHeader from "../../../Components/AuthForm/ProfilePage/ProfileHeader";
+import ProfileTabs from "../../../Components/ProfilePage/ProfileTabs";
+import ProfilePosts from "../../../Components/ProfilePage/ProfilePosts";
+import ProfileHeader from "../../../Components/ProfilePage/ProfileHeader";
 function ProfilePage(){
     return(
         <Container maxW="container.lg" py={5}>

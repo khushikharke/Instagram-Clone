@@ -93,21 +93,24 @@ function ProfilePost({img}){
                             <Flex flex={1} flexDir={"column"}
                             px={10} display={{ base: "none", md: "flex" }}>
                                 <Flex alignItems={"center"} justifyContent={"space-between"}>
-                                    <Avatar src='/profilepic.png' size={"sm"} name="as a programmer"/>
-                                    <Text fontWeight={"bold"} fontSize={12}>
-                                        asaprogrammer_
-                                    </Text>
 
-                                </Flex>
+                                    <Flex alignItems={"center"} gap={4}>
+                                        <Avatar src='/profilepic.png' size={"sm"} name="as a programmer"/>
+                                        <Text fontWeight={"bold"} fontSize={12}>
+                                            asaprogrammer_
+                                        </Text>
 
-                                <Box _hover={{ bg: "whiteAlpha.300", color: "red.600" }}
-											borderRadius={4}
-											p={1}>
-                                    <MdDelete size={20} cursor={"pointer"}/>
-                                </Box>
+                                    </Flex>
+
+                                    <Box _hover={{ bg: "whiteAlpha.300", color: "red.600" }}
+                                                borderRadius={4}
+                                                p={1}>
+                                        <MdDelete size={20} cursor={"pointer"}/>
+                                    </Box>
 
                             </Flex>
 							</Flex>
+                    </Flex>
             
           </ModalBody>
         </ModalContent>

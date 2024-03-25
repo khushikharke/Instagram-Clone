@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container,Flex,Box } from '@chakra-ui/react';
-import FeedPosts from '../../Components/AuthForm/FeedPosts/FeedPosts';
-import SuggestedUsers from '../../Components/AuthForm/SuggestedUsers/SuggestedUsers'; 
+import FeedPosts from '../../Components/FeedPosts/FeedPosts';
+import SuggestedUsers from '../../Components/SuggestedUsers/SuggestedUsers'; 
 function HomePage(){
 
     return(
