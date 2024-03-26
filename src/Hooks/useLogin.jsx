@@ -1,8 +1,9 @@
 import React from 'react';
 import useShowToast from './useShowToast';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase/firebase';
+import { auth,firestore } from '../firebase/firebase';
 import UseAuthStore from '../store/authStore';
+import {doc, getDoc} from 'firebase/firestore';
 function useLogin(){
     const showToast = useShowToast();
     const [
@@ -10,7 +11,7 @@ function useLogin(){
         loading,
         error,
     ]= useSignInWithEmailAndPassword(auth);
-    const loginUser = UseAuthStore(auth);
+    const loginUser = UseAuthStore((state)=> state.login);
 
     const login = async (inputs)=>{
         if(!inputs.email || !inputs.password){
@@ -19,8 +20,8 @@ function useLogin(){
         try{
             const userCred = await signInWithEmailAndPassword(inputs.email, inputs.password);
             if(userCred){
-                const docRef = doc(firestore, "users", "userCred.user.uid");
-                const docSnap= await(docRef);
+                const docRef = doc(firestore, "users", userCred.user.uid);
+                const docSnap= await getDoc(docRef);
                 localStorage.setItem("user-info",JSON.stringify(docSnap.data()));
                 loginUser(docSnap.data());
             } 
@@ -32,4 +33,4 @@ function useLogin(){
     }
     return {loading, error,login};
 }
-export default useLogin;
+export default useLogin ;
