@@ -26,7 +26,7 @@ function PageLayout({children}){
                 </Box>
             ):null}
             {/* navbar on profile page */}
-            {canRenderNavbar ? <Navbar/> : null};
+            {canRenderNavbar ? <Navbar/> : null}
            
             
             {/* page content on right */}
