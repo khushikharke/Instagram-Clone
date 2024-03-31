@@ -6,6 +6,7 @@ import useUserProfileStore from "../store/userProfileStore";
 
 const useGetUserProfileByUsername = (username) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState([]);
   const showToast = useShowToast();
   const { userProfile, setUserProfile } = useUserProfileStore();
   //   const userProfile = useUserProfileStore((state) => state.userProfile);
@@ -30,7 +31,7 @@ const useGetUserProfileByUsername = (username) => {
         });
 
         setUserProfile(userDoc);
-        console.log(userDoc);
+        setPosts(userDoc.posts);
       } catch (error) {
         showToast("Error", error.message, "error");
       } finally {
@@ -41,7 +42,7 @@ const useGetUserProfileByUsername = (username) => {
     getUserProfile();
   }, [setUserProfile, username, showToast]);
 
-  return { isLoading, userProfile };
+  return { isLoading, userProfile, posts };
 };
 
 export default useGetUserProfileByUsername;

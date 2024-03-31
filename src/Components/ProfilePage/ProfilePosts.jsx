@@ -1,11 +1,16 @@
+//  show on profile the created posts
 import { Text, Grid, Skeleton, VStack, Box, Flex } from "@chakra-ui/react";
 
 import ProfilePost from "./ProfilePost";
 import useGetUserPosts from "../../Hooks/useGetUserPosts";
+import { useEffect } from "react";
+import useGetUserProfileByUsername from "../../Hooks/useGetUserProfileByUsername";
 function ProfilePosts() {
-  const { isLoading, posts } = useGetUserPosts();
-  const noPostsFound = !isLoading && posts.length === 0;
-  if (noPostsFound) return <NoPostsFound />;
+  //   const { isLoading, posts } = useGetUserPosts();
+  //   const noPostsFound = !isLoading && posts.length == 0;
+  //   if (noPostsFound) return <NoPostsFound />;
+  const { isLoading, posts } = useGetUserProfileByUsername;
+  console.log(posts, "POSTS>>>>>");
   return (
     <Grid
       templateColumns={{
@@ -26,13 +31,8 @@ function ProfilePosts() {
             </Skeleton>
           </VStack>
         ))}
-      {!isLoading && (
-        <>
-          {posts.map((post) => (
-            <ProfilePost post={post} key={post.id} />
-          ))}
-        </>
-      )}
+
+      <>{posts.map((post) => console.log(post, "POST"))}</>
     </Grid>
   );
 }
